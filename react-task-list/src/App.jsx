@@ -22,11 +22,13 @@ function App() {
             <div className='current-tasks-list'>
               <ul>
                 {currentTasks.map(task => (
-                  <li key={task.id} className={`task ${task.state}`} >
-                    <h3>{task.title}</h3>
+                  <li key={task.id} className={`task ${task.state}`}>
+                    <div className="task-header">
+                      <h3>{task.title}</h3>
+                      <span className="status">{task.state}</span>
+                    </div>
                     <p>Priority: {task.priority}</p>
                     <p>Est. time: {task.estimatedTime}</p>
-                    <span className="status">{task.state}</span>
                   </li>
                 ))}
               </ul>
@@ -43,10 +45,12 @@ function App() {
               <ul>
                 {completedTasks.map(task => (
                   <li key={task.id} className='task completed'>
-                    <h3>{task.title}</h3>
+                    <div className="task-header">
+                      <h3>{task.title}</h3>
+                      <span className="status completed">completed</span>
+                    </div>
                     <p>Priority: {task.priority}</p>
                     <p>Est. time: {task.estimatedTime}</p>
-                    <span className="status completed">completed</span>
                   </li>
                 ))}
               </ul>
