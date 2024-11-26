@@ -8,21 +8,21 @@ function App() {
 
   return (
     <>
-      <footer className='footer'>
+      <header>
         <div className='container'>
           <div className="task-manager">
             <h1>Task Manager</h1>
           </div>
         </div>
-      </footer>
+      </header>
       <main>
         <section className='current-tasks'>
           <div className='container'>
-            <h2>Current Tasks ({currentTasks.length})</h2>
+            <h2 className='current-tasks-title'>Current Tasks ({currentTasks.length})</h2>
             <div className='current-tasks-list'>
               <ul>
                 {currentTasks.map(task => (
-                  <li key={task.id}>
+                  <li key={task.id} className={`task ${task.state}`} >
                     <h3>{task.title}</h3>
                     <p>Priority: {task.priority}</p>
                     <p>Est. time: {task.estimatedTime}</p>
@@ -38,22 +38,22 @@ function App() {
         </div>
         <section className='completed-tasks'>
           <div className='container'>
-            <h2>Completed tasks ({completedTasks.length})</h2>
+            <h2 className='completed-tasks-title'>Completed tasks ({completedTasks.length})</h2>
             <div className='completed-tasks-list'>
               <ul>
                 {completedTasks.map(task => (
-                  <li key={task.id}>
+                  <li key={task.id} className='task completed'>
                     <h3>{task.title}</h3>
                     <p>Priority: {task.priority}</p>
                     <p>Est. time: {task.estimatedTime}</p>
-                    <span className="status">{task.state}</span>
+                    <span className="status completed">completed</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
         </section>
-      </main>
+      </main >
     </>
   )
 }
