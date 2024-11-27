@@ -2,8 +2,8 @@ import './App.css'
 import { tasks } from './data/tasks.js'
 
 function App() {
-  const currentTasks = tasks.filter((task => task.state === 'backlog' || task.state === 'in_progress'))
-  const completedTasks = tasks.filter((task => task.state === 'completed'))
+  const currentTasks = tasks.filter((task => task.state === 'backlog' || task.state === 'in_progress')).sort((taskA, taskB) => taskA.priority - taskB.priority)
+  const completedTasks = tasks.filter((task => task.state === 'completed')).sort((taskA, taskB) => taskA.priority - taskB.priority)
   // console.log(currentTasks, completedTasks)
 
   return (
